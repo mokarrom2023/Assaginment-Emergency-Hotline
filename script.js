@@ -54,3 +54,62 @@ function renderCards() {
         container.appendChild(card);
     });
 }
+
+function showDarkAlert(message, isCall = false){
+    Swal.fire({
+        position: 'top', 
+        title: '<div style="color: #fff; font-size: 14px; font-weight: bold; text-align: left; margin-bottom: 5px;">emergency-hotline.apps says</div>',
+        html: `<div style="display: flex; align-items: center; gap: 10px; color: #fff; text-align: left; font-size: 13px;">
+                ${isCall ? '<i class="fa-solid fa-phone" style="color: #ff4d4d;"></i>' : ''}
+                <span>${message}</span>
+               </div>`,
+        background: '#1a1414',
+        showConfirmButton: true,
+        confirmButtonText: 'OKAY',
+        confirmButtonColor: '#ffb3b3',
+        width: '380px',
+        padding: '1.2rem',
+        showClass: { popup: 'animate__animated animate__fadeInDown animate__faster' },
+        customClass: {
+            popup: 'rounded-xl border border-gray-800',
+            confirmButton: 'rounded-full px-8 py-0.5 text-black font-bold text-xs outline-none'
+        }
+    });
+}
+
+window.handleHeart = () => {
+    hearts++;
+    document.getElementById('nav-heart-count').innerText = hearts;
+};
+
+window.handleCopy = (num) => {
+    navigator.clipboard.writeText(num);
+    copies++;
+    document.getElementById('nav-copy-count').innerText = copies;
+    showDarkAlert(`The number has been copied
+    : ${num}`);
+};
+window.handleCall = (name, num) => {
+    showDarkAlert(`Calling ${name} ${num}...`, true);
+    
+   
+    if (coins < 20) return;
+    coins -= 20; 
+    document.getElementById('nav-coin-count').innerText = coins;
+    
+    const historyList = document.getElementById('history-list');
+    const time = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    
+    const item = document.createElement('div');
+    item.className = "flex justify-between items-center p-4 bg-[#f9fafb] rounded-xl border border-gray-100 shadow-sm w-full mb-2";
+    item.innerHTML = `
+        <div class="text-left">
+            <p class="font-bold text-gray-800 text-[14px] mb-0">${name}</p>
+            <p class="text-[11px] text-gray-500">${num}</p>
+        </div>
+        <div class="text-right">
+            <span class="text-[10px] text-gray-500 font-bold">${time}</span>
+        </div>
+    `;
+    historyList.prepend(item); 
+};
