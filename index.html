@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency-Hotline</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all. min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+        <nav class="sticky top-0 z-50 bg-white   shadow-md px-4 py-3 flex justify-between items-center">
+           
+        <div class="flex items-center gap-2">
+         <img src="assets/logo.png" alt="" class="w-14 h-19">
+         <span class="font-bold text-green-800 text-2xl md:text-lg leading-tight whitespace-nowrap">Emergency <br> Service</span>
+           </div>
+          
+        <div class="flex gap-3 items-center">
+             
+              <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                 <span id="nav-heart-count" class="font-semibold text-black">0</span>
+                  <i class="fa-solid fa-heart text-red-500 text-lg">
+              </div>
+          
+              <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                  <span id="nav-coin-count" class="font-semibold text-black">100</span>
+                  <img src="assets/coin.png" class="w-5 h-5" alt="coin">
+              </div>
+
+          
+              <div class="bg-green-600 text-white px-5 py-2 rounded-full font-semibold">
+                  <span id="nav-copy-count">0</span> Copy
+              </div>
+
+          </div>
+      </nav>
+</body>
+</html>
