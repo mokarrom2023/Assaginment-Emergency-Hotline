@@ -89,7 +89,30 @@ window.handleCopy = (num) => {
     showDarkAlert(`The number has been copied
     : ${num}`);
 };
-
+window.handleCall = (name, num) => {
+    showDarkAlert(`Calling ${name} ${num}...`, true);
+    
+   
+    if (coins < 20) return;
+    coins -= 20; 
+    document.getElementById('nav-coin-count').innerText = coins;
+    
+    const historyList = document.getElementById('history-list');
+    const time = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    
+    const item = document.createElement('div');
+    item.className = "flex justify-between items-center p-4 bg-[#f9fafb] rounded-xl border border-gray-100 shadow-sm w-full mb-2";
+    item.innerHTML = `
+        <div class="text-left">
+            <p class="font-bold text-gray-800 text-[14px] mb-0">${name}</p>
+            <p class="text-[11px] text-gray-500">${num}</p>
+        </div>
+        <div class="text-right">
+            <span class="text-[10px] text-gray-500 font-bold">${time}</span>
+        </div>
+    `;
+    historyList.prepend(item); 
+};
 
 document.getElementById('clear-btn').onclick = () => {
     document.getElementById('history-list').innerHTML = '';
