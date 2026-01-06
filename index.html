@@ -1,40 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency-Hotline</title>
+    <title>Emergency-Hotline-Number</title>
+
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all. min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body class="bg-gray-50 min-h-screen font-sans">
-        <nav class="sticky top-0 z-50 bg-white   shadow-md px-4 py-3 flex justify-between items-center">
-           
+    <nav class="sticky top-0 z-50 bg-white   shadow-md px-4 py-3 flex justify-between items-center">
+        <!-- service section (Left Side) -->
         <div class="flex items-center gap-2">
-         <img src="assets/logo.png" alt="" class="w-14 h-19">
-         <span class="font-bold text-green-800 text-2xl md:text-lg leading-tight whitespace-nowrap">Emergency <br> Service</span>
-           </div>
-          
+            <img src="assets/logo.png" alt="" class="w-14 h-19">
+            <span class="font-bold text-green-800 text-2xl md:text-lg leading-tight whitespace-nowrap">Emergency <br> Service</span>
+        </div>
+        <!-- Right side -->
         <div class="flex gap-3 items-center">
-             
-              <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
-                 <span id="nav-heart-count" class="font-semibold text-black">0</span>
-                  <i class="fa-solid fa-heart text-red-500 text-lg">
-              </div>
-          
-              <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
-                  <span id="nav-coin-count" class="font-semibold text-black">100</span>
-                  <img src="assets/coin.png" class="w-5 h-5" alt="coin">
-              </div>
+            <!-- Heart section -->
+            <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                <span id="nav-heart-count" class="font-semibold text-black">0</span>
+                <i class="fa-solid fa-heart text-red-500 text-lg"></i>
+            </div>
+        <!-- coin section -->
+            <div class="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                <span id="nav-coin-count" class="font-semibold text-black">100</span>
+                <img src="assets/coin.png" class="w-5 h-5" alt="coin">
+            </div>
 
-          
-              <div class="bg-green-600 text-white px-5 py-2 rounded-full font-semibold">
-                  <span id="nav-copy-count">0</span> Copy
-              </div>
+        <!-- copy section -->
+            <div class="bg-green-600 text-white px-5 py-2 rounded-full font-semibold">
+                <span id="nav-copy-count">0</span> Copy
+            </div>
 
-          </div>
-      </nav>
+        </div>
+    </nav>
+
+    <!-- body section -->
+     <section class="bg-gradient-to-b from-[#024a35] to-[#066d4e] text-white  py-2 text-center ">
+        <img src="assets/logo-dark.png" alt="Gov Logo" class="w-24 mx-auto mb-4 ">
+        
+        <h1 class="text-4xl font-bold mb-2">
+           Emergency Service Directory
+        </h1>
+        
+        <p class="text-gray-200">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</p>
+
+     </section>
+
+    <!-- card & Call section -->
+     <main class="container mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- call card -->
+         <div id="card-container" class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+         </div>
+        <!-- Call history section -->
+         <aside class="lg:col-span-1 bg-white p-5 rounded-[1.2rem] border border-gray-200  min-h-[600px] flex flex-col h-full ">
+
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-bold flex items-center gap-2 text-gray-700 text-lg">
+                    <i class="fa-regular fa-clock"></i>Call History
+                </h2>
+                <button id="clear-btn" class="bg-[#05a64b] hover:bg-green-700 text-white px-5 py-1.5 rounded-full text-xs font-bold shadow-sm transition-all">
+                   Clear </button>
+            </div>
+            <!-- history list -->
+             <div id="history-list" class="flex flex-col gap-3 w-full"></div>
+         </aside>
+     </main>
+
+     <script src="script.js"></script>
 </body>
 </html>
